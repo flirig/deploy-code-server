@@ -32,7 +32,7 @@ RUN wget https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-p
 RUN sudo dpkg -i packages-microsoft-prod.deb
 RUN rm packages-microsoft-prod.deb
 
-RUN sudo apt-get update; \
+RUN sudo apt-get update && \
   sudo apt-get install -y apt-transport-https && \
   sudo apt-get update && \
   sudo apt-get install -y dotnet-sdk-5.0
