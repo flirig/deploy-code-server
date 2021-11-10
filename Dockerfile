@@ -26,12 +26,13 @@ RUN sudo chown -R coder:coder /home/coder/.local
 # Note: we use a different marketplace than VS Code. See https://github.com/cdr/code-server/blob/main/docs/FAQ.md#differences-compared-to-vs-code
 # RUN code-server --install-extension esbenp.prettier-vscode
 RUN code-server --install-extension ms-dotnettools.csharp
+RUN code-server --install-extension kishoreithadi.dotnet-core-essentials
 
 # Install apt packages:
 # RUN sudo apt-get install -y ubuntu-make
 RUN sudo apt-get update
 RUN sudo apt-get install wget
-RUN wget https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+RUN curl https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 RUN sudo dpkg -i packages-microsoft-prod.deb
 RUN rm packages-microsoft-prod.deb
 
